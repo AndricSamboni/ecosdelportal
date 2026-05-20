@@ -1,0 +1,305 @@
+/* Declaración de Press Start 2P */
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../fonts/PressStart2P-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Declaración de VT323 */
+@font-face {
+    font-family: 'VT323';
+    src: url('../fonts/VT323-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* Variables de Color basadas en el GDD */
+:root {
+    --pixel-green: #4ade80;
+    --pixel-warm: #fb923c;
+    --pixel-blue: #60a5fa;
+    --pixel-dark: #1f2937;
+    --pixel-light: #f3f4f6;
+    --border-size: 4px;
+}
+
+body {
+    padding: 0 5%;
+    margin: 0;
+    font-family: 'VT323', monospace;
+    background-color: var(--pixel-dark);
+    color: var(--pixel-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .nav-logo {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #000;
+    border-bottom: var(--border-size) solid var(--pixel-green);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--pixel-light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--pixel-green);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background-pixel.png');
+    background-size: cover;
+}
+
+.dynamic-logo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    min-height: 200px;
+    margin: 0 auto 20px;
+    border: var(--border-size) solid var(--pixel-warm);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pixel-logo { width: 90%; image-rendering: pixelated; }
+
+/* Lore Cards */
+.lore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.lore-card {
+    background: #374151;
+    border: var(--border-size) solid var(--pixel-blue);
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.lore-card:hover { transform: translateY(-5px); }
+
+.hidden-text {
+    display: none;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.active .hidden-text { display: block; }
+
+/* Galería con Zoom */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.img-wrapper {
+    overflow: hidden;
+    border: var(--border-size) solid var(--pixel-light);
+}
+
+.zoom-img {
+    width: 100%;
+    transition: transform 0.3s;
+    image-rendering: pixelated;
+}
+
+.zoom-img:hover { transform: scale(1.2); }
+
+/* Botón Pixel Art */
+.btn-pixel {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--pixel-green);
+    color: #000;
+    text-decoration: none;
+    font-family: 'Press Start 2P';
+    font-size: 12px;
+    border: var(--border-size) solid #fff;
+    box-shadow: 6px 6px 0px #000;
+}
+
+.btn-pixel:active {
+    box-shadow: 2px 2px 0px #000;
+    transform: translate(4px, 4px);
+}
+
+/* Contenedor del video */
+.video-placeholder {
+    background-color: #000; /* Fondo negro por si el video tarda en cargar */
+    border: var(--border-size) solid var(--pixel-blue); /* Borde azul de las Cavernas de Cristal */
+    box-shadow: 8px 8px 0px var(--pixel-dark);
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo del elemento video */
+.pixel-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Mantiene la nitidez de los pixeles si el video es de baja resolución */
+    image-rendering: pixelated; 
+    image-rendering: crisp-edges;
+}
+
+/* Efecto opcional: Al pasar el mouse, el video resalta */
+.video-placeholder:hover {
+    border-color: var(--pixel-green); /* Cambia al verde del Bosque de los Susurros */
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* Estilos adicionales para Lore y Documentación */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.pixel-box {
+    background-color: #2d3748;
+    border: var(--border-size) solid var(--pixel-light);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 10px 10px 0px #000;
+}
+
+.hero-small {
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: var(--border-size) solid var(--pixel-blue);
+    background-color: #1a202c;
+}
+
+.bg-warm { border-color: var(--pixel-warm); }
+
+/* Footer Pixel Art */
+.pixel-footer {
+    background-color: #000;
+    border-top: var(--border-size) solid var(--pixel-green);
+    color: var(--pixel-light);
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section h4 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--pixel-green);
+    margin-bottom: 15px;
+}
+
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: #fff; text-decoration: none; }
+.footer-links a:hover { color: var(--pixel-warm); }
+
+
+
+/* Responsivo */
+/* RESET RESPONSIVE RADICAL */
+@media (max-width: 600px) {
+    /* 1. Evitamos el desbordamiento horizontal a nivel de documento */
+    html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Esto corta cualquier cosa que quiera salirse por la derecha */
+    }
+
+    /* 2. Forzamos a que todos los contenedores respeten el ancho de pantalla */
+    .container, .navbar, .section, .footer {
+        width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Aseguramos que las imágenes/videos no expandan el contenedor */
+    img, video, .zoom-img, .pixel-video {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* 4. Ajustes del Menú para que no se desborde */
+    .nav-links {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 5. Ajustes de títulos y texto */
+    h1 { font-size: 1.1rem; word-wrap: break-word; }
+    h2 { font-size: 0.9rem; }
+    
+    /* 6. Evitar que las cajas (Lore cards, etc) se salgan */
+    .lore-grid, .gallery-grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    .hero{
+        padding: 40px 10px;
+    }
+}
